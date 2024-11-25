@@ -1,0 +1,14 @@
+@mixin dimensions($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin min-dimensions($minHeight, $minWidth) {
+    min-height: $minHeight;
+    min-width: $minWidth;
+}
+
+@mixin font-attributes($fontWeight, $fontSize) {
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+}
