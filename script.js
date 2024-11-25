@@ -3,12 +3,18 @@ const dropdownTitles = document.querySelectorAll("#dropdown-title")
 
 const handleClick = (e) => {
   const currentElement = e.target;
+  const parent = currentElement.parentNode;
+  const parentChildren = parent.childNodes;
   let svg;
 
   if (currentElement.id === "btn") {
      svg = currentElement;
   } else if (currentElement.id === "dropdown-title") {
-     svg = currentElement.nextSibling;
+     for (const child of parentChildren) {
+        if (child.id === "btn") {
+            svg = child;
+        }
+     }
   }
 
 
@@ -31,8 +37,18 @@ const handleClick = (e) => {
 
 dialogButtons.forEach((button) => {
     button.addEventListener("click", handleClick);
+    button.addEventListener("keypress", (event) => {
+        if(event.key === "Enter") {
+            handleClick(event);
+        }
+    })
 })
 
 dropdownTitles.forEach((title) => {
-    title.addEventListener("click", handleClick)
+    title.addEventListener("click", handleClick);
+    title.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        handleClick(event);
+      }
+    });
 })

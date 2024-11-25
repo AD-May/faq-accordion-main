@@ -42,6 +42,9 @@ main {
   @include dimensions(100px, 650px);
   @include font-attributes(700, 2.2em);
   padding: 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .dropdown {
@@ -59,6 +62,14 @@ main {
     path {
       pointer-events: none;
     }
+    svg:hover, h3:hover, svg:focus, h3:focus {
+      cursor: pointer;
+      color: $grayishPurple;
+    }
+    svg:hover, svg:focus {
+      border: 2px solid $lightPink;
+    }
+
   }
   p {
     @include font-attributes(400, 16px);
@@ -79,8 +90,57 @@ main {
   } 
 }
 
-.btn:hover, #dropdown-title:hover {
-  cursor: pointer;
-  color: $grayishPurple; 
+@media (max-width: 1024px) {
+  main {
+    @include dimensions(598px, 598px);
+    padding: 0 35px;
+  }
+  #title {
+    @include dimensions(86px, 555px);
+    @include font-attributes(700, 1.88em);
+    padding: 0 35px;
+  }
+  .dropdown {
+    margin: 8.55px 0;
+    padding-bottom: 17.1px;
+    #dropdown-header {
+      margin-bottom: 17.1px;
+      @include font-attributes(600, .94em);
+    }
+    p {
+      @include font-attributes(400, 14px);
+    }
+  }
+  .attribution {
+    height: 2.14em;
+    font-size: 9.4px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    @include dimensions(450px, 450px);
+    padding: 0 23px;
+  }
+  #title {
+    @include dimensions(55px, 355px);
+    @include font-attributes(700, 1.21em);
+    padding: 0 23px;
+  }
+  .dropdown {
+    margin: 5.5px 0;
+    padding-bottom: 10.9px;
+    #dropdown-header {
+      margin-bottom: 10.9px;
+      @include font-attributes(600, .60em);
+    }
+    p {
+      @include font-attributes(400, 9px);
+    }
+  }
+  .attribution {
+    height: 1.4em;
+    font-size: 6px;
+  }
 }
 
